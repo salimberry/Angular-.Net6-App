@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fullstack.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230219234504_inits")]
-    partial class inits
+    [Migration("20230222193754_sync-operation")]
+    partial class syncoperation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,16 +30,13 @@ namespace Fullstack.Api.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Number")
+                    b.Property<int>("Phone")
                         .HasColumnType("int");
 
                     b.Property<int>("Salary")

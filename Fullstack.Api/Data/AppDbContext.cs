@@ -8,7 +8,6 @@ namespace Fullstack.Api.Data
         public AppDbContext(DbContextOptions options) : base(options)
         {
         }
-
         public DbSet<Employee> employees { get; set; }
 
 

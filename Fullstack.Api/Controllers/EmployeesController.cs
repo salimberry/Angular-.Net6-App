@@ -1,5 +1,6 @@
 ﻿using Fullstack.Api.Data;
 using Fullstack.Api.Models;
+using Fullstack.Api.Validation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -23,12 +24,12 @@ namespace Fullstack.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> AddEmployee([FromBody]Employee employeeRequest)
         {
-           /* var validator = new EmployeeValidator();
-            var result = validator.Validate(employeeRequest);
-            if (!result.IsValid)
+            var validator = new EmployeeValidator();
+            var validationResult = await validator.ValidateAsync(employeeRequest);
+            if (!validationResult.IsValid)
             {
-                return BadRequest(result.Errors);
-            }*/
+                return BadRequest(validationResult.Errors);
+            }
 
             employeeRequest.Id = Guid.NewGuid();
             await _context.employees.AddAsync(employeeRequest);
@@ -54,12 +55,12 @@ namespace Fullstack.Api.Controllers
         [Route("{id:Guid}")]
         public async Task<IActionResult> UpdateEmployee([FromRoute] Guid id,Employee updateEmployeeRequest)
         {
-            /*var validator = new EmployeeValidator();
-            var result = validator.Validate(updateEmployeeRequest);
-            if (!result.IsValid)
+            var validator = new EmployeeValidator();
+            var validationResult = await validator.ValidateAsync(updateEmployeeRequest);
+            if (!validationResult.IsValid)
             {
-                return BadRequest(result.Errors);
-            }*/
+                return BadRequest(validationResult.Errors);
+            }
             var employee = await _context.employees.FindAsync(id);
 
             if (employee == null)
