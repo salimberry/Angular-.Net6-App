@@ -22,7 +22,7 @@ namespace Fullstack.Api.Controllers
             return Ok(data);
         }
         [HttpPost]
-        public async Task<IActionResult> AddEmployee([FromBody]Employee employeeRequest)
+        public async Task<IActionResult> AddEmployee([FromBody] Employee employeeRequest)
         {
             var validator = new EmployeeValidator();
             var validationResult = await validator.ValidateAsync(employeeRequest);
@@ -31,11 +31,18 @@ namespace Fullstack.Api.Controllers
                 return BadRequest(validationResult.Errors);
             }
 
+            // email or phone already exists in the database
+            var existingEmployee = await _context.employees.FirstOrDefaultAsync(e => e.Email == employeeRequest.Email || e.Phone == employeeRequest.Phone);
+            if (existingEmployee != null)
+            {
+                return BadRequest("An employee with the same email or phone already exists.");
+            }
             employeeRequest.Id = Guid.NewGuid();
             await _context.employees.AddAsync(employeeRequest);
             await _context.SaveChangesAsync();
             return Ok(employeeRequest);
         }
+
 
         [HttpGet]
         [Route("{id:Guid}")]
@@ -50,10 +57,9 @@ namespace Fullstack.Api.Controllers
             }
             return Ok(employee);
         }
-
         [HttpPut]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> UpdateEmployee([FromRoute] Guid id,Employee updateEmployeeRequest)
+        public async Task<IActionResult> UpdateEmployee([FromRoute] Guid id, Employee updateEmployeeRequest)
         {
             var validator = new EmployeeValidator();
             var validationResult = await validator.ValidateAsync(updateEmployeeRequest);
@@ -61,20 +67,30 @@ namespace Fullstack.Api.Controllers
             {
                 return BadRequest(validationResult.Errors);
             }
-            var employee = await _context.employees.FindAsync(id);
 
+            var employee = await _context.employees.FirstOrDefaultAsync(e => e.Id == id);
             if (employee == null)
             {
                 return NotFound();
             }
+
+            // Check if the email/phone already exists for another employee
+            var existingEmployee = await _context.employees.FirstOrDefaultAsync(e => e.Id != id && e.Email == updateEmployeeRequest.Email);
+            if (existingEmployee != null)
+            {
+                return BadRequest(new { message = "An employee with this email already exists" });
+            }
+
             employee.Name = updateEmployeeRequest.Name;
             employee.Email = updateEmployeeRequest.Email;
             employee.Phone = updateEmployeeRequest.Phone;
             employee.Salary = updateEmployeeRequest.Salary;
+
             await _context.SaveChangesAsync();
             return Ok(employee);
-
         }
+
+
         [HttpDelete]
         [Route("{id:Guid}")]
         public async Task<IActionResult> DeleteEmployee([FromRoute] Guid id)
