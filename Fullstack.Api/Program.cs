@@ -1,4 +1,5 @@
 using Fullstack.Api.Data;
+using Fullstack.Api.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
@@ -11,6 +12,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+builder.Services.AddScoped<IEmployeesService,EmployeesService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
