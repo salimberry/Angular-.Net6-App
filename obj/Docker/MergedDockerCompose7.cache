@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 name: dockercompose16864834685272720303
 services:
   fullstack.api:
     build:
       context: C:\Users\Decagon\Desktop\Angular-.Net6-App
+=======
+name: dockercompose10134244816930457667
+services:
+  fullstack.api:
+    build:
+      context: C:\Users\AngularApp\Angular-.Net6-App
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
       dockerfile: Fullstack.Api/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
@@ -35,7 +43,11 @@ services:
       protocol: tcp
     - mode: ingress
       target: 443
+<<<<<<< HEAD
       published: "63999"
+=======
+      published: "63979"
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
       protocol: tcp
     tty: true
     volumes:
@@ -58,4 +70,8 @@ services:
         create_host_path: true
 networks:
   default:
+<<<<<<< HEAD
     name: dockercompose16864834685272720303_default
+=======
+    name: dockercompose10134244816930457667_default
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37

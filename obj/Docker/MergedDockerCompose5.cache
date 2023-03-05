@@ -4,6 +4,7 @@ services:
     build:
       context: C:\Users\AngularApp\Angular-.Net6-App
       dockerfile: Fullstack.Api/Dockerfile
+<<<<<<< HEAD
       labels:
         com.microsoft.created-by: visual-studio
         com.microsoft.visual-studio.project-name: Fullstack.Api
@@ -27,6 +28,12 @@ services:
         dotnet); then kill $$PID; fi"
       com.microsoft.visualstudio.debuggee.program: dotnet
       com.microsoft.visualstudio.debuggee.workingdirectory: /app
+=======
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: https://+:443;http://+:80
+    image: fullstackapi
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
     networks:
       default: null
     ports:
@@ -38,6 +45,7 @@ services:
       protocol: tcp
     - mode: ingress
       target: 443
+<<<<<<< HEAD
       published: "63999"
       protocol: tcp
     tty: true
@@ -50,6 +58,15 @@ services:
     - type: bind
       source: C:\Users\Decagon\vsdbg\vs2017u5
       target: /remote_debugger
+=======
+      published: "63979"
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: C:\Users\Decagon\AppData\Roaming/Microsoft/UserSecrets
+      target: /root/.microsoft/usersecrets
+      read_only: true
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
       bind:
         create_host_path: true
     - type: bind
@@ -58,6 +75,7 @@ services:
       read_only: true
       bind:
         create_host_path: true
+<<<<<<< HEAD
     - type: bind
       source: C:\Users\Decagon\AppData\Roaming/Microsoft/UserSecrets
       target: /root/.microsoft/usersecrets
@@ -81,6 +99,8 @@ services:
       target: /src
       bind:
         create_host_path: true
+=======
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
 networks:
   default:
     name: dockercompose10134244816930457667_default

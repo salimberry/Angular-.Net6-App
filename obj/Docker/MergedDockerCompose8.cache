@@ -1,12 +1,24 @@
+<<<<<<< HEAD
 name: dockercompose16864834685272720303
 services:
   fullstack.api:
     build:
       context: C:\Users\Decagon\Desktop\Angular-.Net6-App
+=======
+name: dockercompose10134244816930457667
+services:
+  fullstack.api:
+    build:
+      context: C:\Users\AngularApp\Angular-.Net6-App
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
       dockerfile: Fullstack.Api/Dockerfile
       labels:
         com.microsoft.created-by: visual-studio
         com.microsoft.visual-studio.project-name: Fullstack.Api
+<<<<<<< HEAD
+=======
+      target: base
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
     container_name: Fullstack.Api
     entrypoint:
     - tail
@@ -14,12 +26,23 @@ services:
     - /dev/null
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+<<<<<<< HEAD
       ASPNETCORE_URLS: https://+:443;http://+:80
     image: fullstackapi
     labels:
       com.microsoft.visual-studio.project-name: Fullstack.Api
       com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
         --additionalProbingPath /root/.nuget/fallbackpackages  "/app/Fullstack.Api.dll"'
+=======
+      ASPNETCORE_LOGGING__CONSOLE__DISABLECOLORS: "true"
+      ASPNETCORE_URLS: https://+:443;http://+:80
+      DOTNET_USE_POLLING_FILE_WATCHER: "1"
+      NUGET_FALLBACK_PACKAGES: /root/.nuget/fallbackpackages
+    image: fullstackapi:dev
+    labels:
+      com.microsoft.visualstudio.debuggee.arguments: ' --additionalProbingPath /root/.nuget/packages
+        --additionalProbingPath /root/.nuget/fallbackpackages  "/app/bin/Debug/net6.0/Fullstack.Api.dll"'
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
       com.microsoft.visualstudio.debuggee.killprogram: /bin/sh -c "if PID=$$(pidof
         dotnet); then kill $$PID; fi"
       com.microsoft.visualstudio.debuggee.program: dotnet
@@ -35,11 +58,23 @@ services:
       protocol: tcp
     - mode: ingress
       target: 443
+<<<<<<< HEAD
       published: "63999"
+=======
+      published: "63979"
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
       protocol: tcp
     tty: true
     volumes:
     - type: bind
+<<<<<<< HEAD
+=======
+      source: C:\Users\AngularApp\Angular-.Net6-App\Fullstack.Api
+      target: /app
+      bind:
+        create_host_path: true
+    - type: bind
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
       source: C:\Users\Decagon\vsdbg\vs2017u5
       target: /remote_debugger
       bind:
@@ -56,6 +91,29 @@ services:
       read_only: true
       bind:
         create_host_path: true
+<<<<<<< HEAD
 networks:
   default:
     name: dockercompose16864834685272720303_default
+=======
+    - type: bind
+      source: C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages
+      target: /root/.nuget/fallbackpackages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\Decagon\.nuget\packages\
+      target: /root/.nuget/packages
+      read_only: true
+      bind:
+        create_host_path: true
+    - type: bind
+      source: C:\Users\AngularApp\Angular-.Net6-App
+      target: /src
+      bind:
+        create_host_path: true
+networks:
+  default:
+    name: dockercompose10134244816930457667_default
+>>>>>>> 592189c0742141aaa9234a26fc239a93f9253b37
