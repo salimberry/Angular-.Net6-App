@@ -63,13 +63,18 @@ namespace Fullstack.Api.Services
                 throw new ArgumentException($"Employee with id {id} does not exist.");
             }
 
-            // Check if the email/phone already exists for another employee
+            // Check if the email already exists for another employee
             var existingEmployee = await _context.employees.FirstOrDefaultAsync(e => e.Id != id && e.Email == updateEmployeeRequest.Email);
             if (existingEmployee != null)
             {
                 throw new ArgumentException($"An employee with email {updateEmployeeRequest.Email} already exists.");
             }
-
+            // Check if the phone already exists for another employee
+            var existingEmployeePhone = await _context.employees.FirstOrDefaultAsync(e => e.Id != id && e.Phone == updateEmployeeRequest.Phone);
+            if (existingEmployeePhone != null)
+            {
+                throw new ArgumentException($"An employee with phone number {updateEmployeeRequest.Phone} already exists.");
+            }
             employee.Name = updateEmployeeRequest.Name;
             employee.Email = updateEmployeeRequest.Email;
             employee.Phone = updateEmployeeRequest.Phone;

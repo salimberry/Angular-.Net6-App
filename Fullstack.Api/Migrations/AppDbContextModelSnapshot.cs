@@ -34,7 +34,7 @@ namespace Fullstack.Api.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("Phone")
+                    b.Property<int>("Phone")
                         .HasColumnType("int");
 
                     b.Property<int?>("Salary")

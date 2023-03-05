@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Fullstack.Api.props" />
+</Project>

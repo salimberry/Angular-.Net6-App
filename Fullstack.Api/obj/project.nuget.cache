@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ocMuyLtIxegEFmaUdjZu/jtG1rOnn7TujFEEl+pOn3X4REewXCRgPHT36XCgxY7CRSXZR1icimSDiUa0m9O+QQ==",
+  "dgSpecHash": "VfWFSm99oZQVVXt9s0hq97fiLjnLaIiXx/J+cpFB6eOowb8/1etExAtC30+F7bEavXO9nz5ulDP/Rnwc5yREVg==",
   "success": true,
-  "projectFilePath": "C:\\AngularCrud\\FullStack.Api\\Fullstack.Api\\Fullstack.Api\\Fullstack.Api.csproj",
+  "projectFilePath": "C:\\Users\\AngularApp\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Decagon\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\Decagon\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -34,6 +34,7 @@
     "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\Decagon\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\Decagon\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
