@@ -4,7 +4,7 @@ namespace Fullstack.Api.Services
 {
     public interface IEmployeesService
     {
-        Task<Employee[]> GetAllEmployeesAsync();
+        Task<List<Employee>> GetAllEmployeesAsync();
         Task<Employee> GetEmployeeIdAsync(Guid id);
         Task<Employee> AddEmployeeAsync(Employee employee);
         Task UpdateEmployeeAsync(Guid id, Employee updateEmployeeRequest);

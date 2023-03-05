@@ -14,9 +14,9 @@ namespace Fullstack.Api.Services
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<Employee[]> GetAllEmployeesAsync()
+        public async Task<List<Employee>> GetAllEmployeesAsync()
         {
-            return await _context.employees.ToArrayAsync();
+            return await _context.employees.ToListAsync();
         }
 
         public async Task<Employee> GetEmployeeIdAsync(Guid id)
