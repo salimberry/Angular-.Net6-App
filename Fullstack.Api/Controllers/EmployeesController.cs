@@ -6,6 +6,7 @@ using Fullstack.Api.Validation;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace Fullstack.Api.Controllers
 {
@@ -15,17 +16,20 @@ namespace Fullstack.Api.Controllers
     {
        private readonly IEmployeesService _employeesService;
         private readonly IMemoryCache _memoryCache;
+        private readonly ILogger <EmployeesController> _logger;
 
-        public EmployeesController(IEmployeesService employeesService, IMemoryCache memoryCache)
+
+        public EmployeesController(IEmployeesService employeesService, IMemoryCache memoryCache, ILogger<EmployeesController> logger)
         {
             _employeesService = employeesService ?? throw new ArgumentNullException(nameof(employeesService));
             _memoryCache = memoryCache;
+            _logger = logger;
 
         }
 
         [HttpGet]
         public async Task<ActionResult> GetAllEmployees()
-        {
+        { 
             Employee employeeobj = new Employee();
 
             try
@@ -64,9 +68,11 @@ namespace Fullstack.Api.Controllers
             catch (Exception ex)
             {
 
-                throw;
+                _logger.LogError("Error Occured while handling GetAllEmployees}  " +  ex );
+                return null;
+
             }
-           
+
         }
 
         [HttpGet("{id:Guid}")]
@@ -110,7 +116,9 @@ namespace Fullstack.Api.Controllers
             catch (Exception ex)
             {
 
+                _logger.LogError("Error Occured while handling GetAllEmployees}  " + ex.InnerException);
                 return null;
+
             }
 
 
@@ -155,7 +163,9 @@ namespace Fullstack.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError("Error Occured while handling AddEmployee}  " + ex.InnerException);
+                return null;
+
             }
         }
 
@@ -192,9 +202,11 @@ namespace Fullstack.Api.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                _logger.LogError("Error Occured while handling GetAllEmployees}  " + ex.InnerException);
+                return null;
+
             }
-    
+
         }
 
         [HttpDelete("{id:Guid}")]
@@ -212,7 +224,8 @@ namespace Fullstack.Api.Controllers
             }
             catch (Exception ex)
             {
-                return NotFound(ex.Message);
+                _logger.LogError("Error Occured while handling GetAllEmployees}  " + ex.InnerException);
+                return null;
             }
         }
     }

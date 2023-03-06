@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Decagon\\Desktop\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj": {}
+    "C:\\Users\\AngularApp\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Decagon\\Desktop\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj": {
+    "C:\\Users\\AngularApp\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Decagon\\Desktop\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj",
+        "projectUniqueName": "C:\\Users\\AngularApp\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj",
         "projectName": "Fullstack.Api",
-        "projectPath": "C:\\Users\\Decagon\\Desktop\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj",
+        "projectPath": "C:\\Users\\AngularApp\\Angular-.Net6-App\\Fullstack.Api\\Fullstack.Api.csproj",
         "packagesPath": "C:\\Users\\Decagon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Decagon\\Desktop\\Angular-.Net6-App\\Fullstack.Api\\obj\\",
+        "outputPath": "C:\\Users\\AngularApp\\Angular-.Net6-App\\Fullstack.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
